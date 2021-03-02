@@ -4,12 +4,12 @@
  * @Author: BurNing
  * @Date: 2021-02-19 21:24:05
  * @LastEditors: BurNing
- * @LastEditTime: 2021-03-01 14:25:29
+ * @LastEditTime: 2021-03-02 15:31:25
  */
 
  import * as actionTypes from './constants';
 
- import {getTopBanners, getRecommends, getNewAlbums} from "service/recommend";
+ import {getTopBanners, getRecommends, getNewAlbums, getRankingList} from "service/recommend";
 
  const changeTopBannerAction = (res) =>{
      return {
@@ -21,6 +21,27 @@ const changeNewAlbumsAction = (res) =>{
     return{
         type:actionTypes.CHANGR_NEW_Albums,
         newAlbums:res
+    }
+}
+
+const changeUpRankingAction = (res) =>{
+    return {
+        type:actionTypes.CHANGR_UP_Ranking,
+        upRanking:res
+    }
+}
+
+const changeNewRankingAction = (res) =>{
+    return {
+        type:actionTypes.CHANGR_NEW_Ranking,
+        newRanking:res
+    }
+}
+
+const changeOriginRankingAction = (res) =>{
+    return {
+        type:actionTypes.CHANGR_ORIGIN_Ranking,
+        originRanking:res
     }
 }
 
@@ -54,5 +75,25 @@ const changeNewAlbumsAction = (res) =>{
              const data = res.albums.slice(0,num)
              dispatch(changeNewAlbumsAction(data))
          })
+     }
+ }
+
+ export const getRankingListAction = (num) =>{
+     return dispatch =>{
+         getRankingList(num).then(
+             res=>{
+                switch (num) {
+                    case 0 : 
+                      dispatch(changeUpRankingAction(res.playlist))
+                      break;
+                    case 2 : 
+                      dispatch(changeNewRankingAction(res.playlist))
+                      break;
+                    case 3 : 
+                      dispatch(changeOriginRankingAction(res.playlist))
+                      break;
+                }
+             }
+         )
      }
  }

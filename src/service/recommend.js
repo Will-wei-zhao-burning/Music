@@ -4,7 +4,7 @@
  * @Author: BurNing
  * @Date: 2021-02-20 17:53:37
  * @LastEditors: BurNing
- * @LastEditTime: 2021-03-01 14:06:15
+ * @LastEditTime: 2021-03-02 14:53:55
  */
 import request from './request'
 
@@ -28,6 +28,15 @@ export function getNewAlbums(limit) {
         url: "/top/album",
         params: {
             limit
+        }
+    })
+}
+
+export function getRankingList(idx){
+    return request({
+        url: "/top/list",
+        params:{
+            idx
         }
     })
 }

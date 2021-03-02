@@ -4,16 +4,20 @@
  * @Author: BurNing
  * @Date: 2021-02-19 21:23:41
  * @LastEditors: BurNing
- * @LastEditTime: 2021-03-01 14:28:45
+ * @LastEditTime: 2021-03-02 15:28:19
  */
 import {Map} from 'immutable'
 
- import {CHANGR_TOP_BANNERS,CHANGR_HOT_Reacommends,CHANGR_NEW_Albums} from './constants'
+ import {CHANGR_TOP_BANNERS,CHANGR_HOT_Reacommends,CHANGR_NEW_Albums,CHANGR_UP_Ranking,CHANGR_NEW_Ranking,CHANGR_ORIGIN_Ranking} from './constants'
 //Imutable转换
  const defaultState = Map({
      topBanners:[],
      hotRecommends:[],
-     newAlbums:[]
+     newAlbums:[],
+
+     upRanking:{},
+     newRanking:{},
+     originRanking:{}
  })
 
  function reducer(state=defaultState,action){
@@ -24,6 +28,12 @@ import {Map} from 'immutable'
              return state.set('hotRecommends',action.hotRecommends)
          case CHANGR_NEW_Albums:
             return state.set('newAlbums',action.newAlbums)
+         case CHANGR_UP_Ranking:
+            return state.set('upRanking',action.upRanking)
+         case CHANGR_NEW_Ranking:
+             return state.set('newRanking',action.newRanking)
+         case CHANGR_ORIGIN_Ranking:
+             return state.set('originRanking',action.originRanking)
          default:
              return state;
      }
