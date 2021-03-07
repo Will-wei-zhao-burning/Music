@@ -4,7 +4,7 @@
  * @Author: BurNing
  * @Date: 2021-03-03 16:22:24
  * @LastEditors: BurNing
- * @LastEditTime: 2021-03-06 17:07:51
+ * @LastEditTime: 2021-03-06 17:15:20
  */
 import React, { memo, useEffect, useRef, useState } from 'react'
 import { NavLink } from 'react-router-dom'
@@ -59,7 +59,7 @@ export default memo(function PlayBar() {
                            </span>
                        </div>
                        <div className="slider">
-                           <Slider step={0.2} value={sliderValue} defaultValue={30} ></Slider>
+                           <Slider onChange={e=>{sliderChange()}}  onAfterChange={e=>{sliderAfterChange()}} step={0.2} value={sliderValue} defaultValue={30} ></Slider>
                            <div className="timer">
                                <span className="now-time">{showCurrentTime}</span>
                                <span className="divider">/</span>
@@ -95,5 +95,11 @@ export default memo(function PlayBar() {
     function timeUpdate(){
         console.log(audioRef.current.currentTime);
         setcurrentTime(audioRef.current.currentTime*1000)
+    }
+    function sliderChange(){
+
+    }
+    function sliderAfterChange(){
+
     }
 })
