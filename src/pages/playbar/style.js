@@ -4,7 +4,7 @@
  * @Author: BurNing
  * @Date: 2021-03-03 16:22:30
  * @LastEditors: BurNing
- * @LastEditTime: 2021-03-05 11:42:32
+ * @LastEditTime: 2021-03-09 11:29:54
  */
 import styled from 'styled-components'
 
@@ -44,7 +44,7 @@ export const Control = styled.div`
     width: 36px;
     height: 36px;
     margin-top: 0;
-    background-position: 0 -204px;
+    background-position:0  ${props => props.isPlaying ? "-165px":"-204px"} ;
    }
 
    .next{
@@ -73,6 +73,7 @@ export const Info = styled.div`
         line-height:28px;
          .song-name{
              margin-right:10px;
+             color:#e8e8e8
          }
        }
        .slider{
