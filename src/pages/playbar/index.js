@@ -4,7 +4,7 @@
  * @Author: BurNing
  * @Date: 2021-03-03 16:22:24
  * @LastEditors: BurNing
- * @LastEditTime: 2021-03-09 11:55:07
+ * @LastEditTime: 2021-03-09 13:47:53
  */
 import React, { memo, useEffect, useRef, useState, useCallback } from 'react'
 import { NavLink } from 'react-router-dom'
@@ -44,7 +44,7 @@ export default memo(function PlayBar() {
 
     //handle function 
     //播放音乐
-    const playMusic = () =>{
+    const playMusic = useCallback(() =>{
         setIsPlaying(!isPlaying);
         if(!isPlaying){
             audioRef.current.play();
@@ -52,7 +52,7 @@ export default memo(function PlayBar() {
         else{
             audioRef.current.pause();
         }
-    }
+    },[isPlaying])
     //audio时间更新
     const timeUpdate = ()=>{
         console.log(audioRef.current.currentTime);
@@ -86,7 +86,7 @@ export default memo(function PlayBar() {
                </Control>
                <Info>
                    <div className="song-pic">
-                       <NavLink to="/discover">
+                       <NavLink to="/discover/playInfo">
                            <img src={getSizeImage(imgurl,35)}></img>
                        </NavLink>
                    </div>

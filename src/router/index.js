@@ -4,7 +4,7 @@
  * @Author: BurNing
  * @Date: 2021-02-18 16:07:04
  * @LastEditors: BurNing
- * @LastEditTime: 2021-02-19 18:20:47
+ * @LastEditTime: 2021-03-09 13:43:37
  */
 import React from "react"
 
@@ -15,6 +15,7 @@ import Djradio  from "@/pages/discover/children/djradio"
 import Ranking  from "@/pages/discover/children/ranking"
 import Recommend  from "@/pages/discover/children/recommend"
 import Songs  from "@/pages/discover/children/songs"
+import PlayInfo from "@/pages/playbar/playInfo"
 import MusicFriend from "@/pages/friend";
 import MusicMine from "@/pages/mine";
 import MusicStore from "@/pages/store"
@@ -63,6 +64,10 @@ const routes = [
             {
                 path:'/discover/songs',
                 component:Songs
+            },
+            {
+                path:'/discover/playInfo',
+                component:PlayInfo
             }
         ]
     },
